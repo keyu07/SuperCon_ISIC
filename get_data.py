@@ -76,7 +76,7 @@ class TestData(Dataset):
 def loaders(mode, train_batchsz=128, test_batchsz=128):
     path_20 = '/path_to_your_image_file'
     if mode == '19+20':
-        file = '/path_to_your_listfile/super_con2.txt'
+        file = '/path_to_your_listfile/Train19+20.txt'
         # Replace the SuperconData to TrainData when you run Classifier_FineTune.py
         dataset = SuperconData(file, path_20, aug())
         loader = torch.utils.data.DataLoader(dataset, shuffle=True, batch_size=train_batchsz, num_workers=12)
