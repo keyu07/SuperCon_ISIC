@@ -3,7 +3,6 @@ from torch import nn
 import torch
 import os
 import torch.nn.functional as F
-from skimage import io
 from efficientnet_pytorch import EfficientNet
 
 class NetE_resnet(nn.Module):
