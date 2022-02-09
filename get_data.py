@@ -74,21 +74,21 @@ class TestData(Dataset):
         return sample, y
 
 def loaders(mode, train_batchsz=128, test_batchsz=128):
-    path_20 = '/home/keyu/keyu/data/ISIC2020/jpeg/train'
+    path_20 = '/path_to_your_image_file'
     if mode == '19+20':
-        file = '/home/keyu/keyu/data/super_con2.txt'
+        file = '/path_to_your_listfile/super_con2.txt'
         # Replace the SuperconData to TrainData when you run Classifier_FineTune.py
         dataset = SuperconData(file, path_20, aug())
         loader = torch.utils.data.DataLoader(dataset, shuffle=True, batch_size=train_batchsz, num_workers=12)
         
     if mode == '2020only':
-        file = '/home/keyu/keyu/data/ISIC2020/ISIC2020_train.txt'
+        file = '/path_to_your_listfile/ISIC2020_train.txt'
         # Replace the SuperconData to TrainData when you run Classifier_FineTune.py
         dataset = SuperconData(file, path_20, aug())
         loader = torch.utils.data.DataLoader(dataset, shuffle=True, batch_size=train_batchsz, num_workers=12)
         
     if mode == 'test':
-        file = '/home/keyu/keyu/data/ISIC2020_test.csv'
+        file = '/path_to_your_listfile/ISIC2020_test.csv'
         dataset = TestData(file, path_20)
         loader = torch.utils.data.DataLoader(dataset, shuffle=False, batch_size=test_batchsz, num_workers=12)
     return loader
